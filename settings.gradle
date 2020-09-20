@@ -1,2 +1,3 @@
+include ':awesomeframework'
 include ':app'
 rootProject.name = "LeagueOfKeko"
