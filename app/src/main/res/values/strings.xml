@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LeagueOfKeko</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="oturumumu_acik_tut">OTURUMUMU ACIK TUT</string>
+    <string name="oturum_txt">OTURUM ACAMIYOR MUSUN?</string>
 </resources>
