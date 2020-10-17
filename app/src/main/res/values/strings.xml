@@ -6,5 +6,7 @@
     <string name="oturum_txt">OTURUM ACAMIYOR MUSUN?</string>
     <string name="media_url_mp3">https://storage.googleapis.com/exoplayer-test-media-0/play.mp3</string>
     <string name="media_url2_mp3">https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4</string>
+    <string name="giris_yap">Giris Yap</string>
+    <string name="hesap_olustur">Hesap Olustur</string>
 
 </resources>

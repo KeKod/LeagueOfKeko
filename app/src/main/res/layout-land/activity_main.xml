@@ -1,73 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="12">
+    android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4">
+        app:bar_height="50dp"
+        app:buffered_color="@color/colorAccent1"
+        app:hide_on_touch="true"
+        app:played_color="@color/colorPrimary"
+        app:scrubber_color="@color/colorAccent2"
+        app:unplayed_color="@color/colorAccent"
+        app:use_controller="false">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible" />
+
+    </com.google.android.exoplayer2.ui.PlayerView>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="12dp"
+        android:src="@drawable/settings" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center|start"
+            android:background="#7F000080"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imgHelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
-                android:src="@drawable/help" />
+                android:src="@drawable/ic_baseline_help_24" />
 
             <ImageView
                 android:id="@+id/imgLeague"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imgHelp"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
                 android:src="@drawable/league" />
 
             <TextView
                 android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imgLeague"
-                android:layout_centerHorizontal="true"
-                android:text="Giris Yap"
-                android:textSize="16dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/giris_yap"
+                android:textColor="@color/exo_white"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputUsername"
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtLogin"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="@string/username" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputPassword"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@id/inputUsername"
                 android:layout_marginHorizontal="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/exo_white"
+                    android:hint="@string/username" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/exo_white"
+                    android:inputType="numberPassword"
                     android:hint="@string/password" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,20 +108,19 @@
                 android:id="@+id/chxRemember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/inputPassword"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/oturumumu_acik_tut"
-                android:textSize="8sp" />
+                android:textColor="@color/exo_white"
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
 
             <ImageView
                 android:id="@+id/btnLogin"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_below="@id/chxRemember"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="36dp"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/custom_button"
                 android:src="@drawable/ic_baseline_arrow_forward_24" />
 
@@ -96,63 +128,26 @@
                 android:id="@+id/txtCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnLogin"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
                 android:text="@string/oturum_txt"
-                android:textSize="12dp"
+                android:textColor="@color/exo_white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtCreate"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
-                android:text="Hesap Olustur"
-                android:textSize="12dp"
+                android:text="@string/hesap_olustur"
+                android:textColor="@color/exo_white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="8">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </androidx.cardview.widget.CardView>
 
-            <com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/playerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:importantForAutofill="yesExcludeDescendants"
-                android:keepScreenOn="false"
-                app:bar_height="100dp"
-                app:hide_on_touch="false"
-                app:played_color="@color/colorAccent"
-                app:use_controller="true">
 
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="visible" />
-
-            </com.google.android.exoplayer2.ui.PlayerView>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end|bottom"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginVertical="12dp"
-                android:src="@drawable/settings" />
-
-        </FrameLayout>
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>
